@@ -1,5 +1,8 @@
 {
   "deno.enable": true,
   "deno.lint": true,
-  "deno.unstable": true
+  "deno.unstable": false,
+  "deno.internalDebug": true,
+  "deno.codeLens.references": true,
+  "deno.codeLens.referencesAllFunctions": true
 }
