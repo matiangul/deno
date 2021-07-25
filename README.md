@@ -9,3 +9,9 @@ https://github.com/denoland/deployctl/issues/24#issuecomment-819272065
 Code copied from deno tutorial: https://deno.com/deploy/docs/serve-static-assets
 
 To use it in deno deploy just copy this [link to static/mod.ts](static/mod.ts)
+
+To run it locally execute:
+```sh
+deployctl run --libs="" --watch ./static/mod.ts
+```
+_(because of that types reference for vscode and deno lsp we need to pass empty libs)_
