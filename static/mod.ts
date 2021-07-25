@@ -1,6 +1,6 @@
 /// <reference path="./../deploy.d.ts" />
 
-function handleRequest(request: Request) {
+async function handleRequest(request: Request) {
   const { pathname } = new URL(request.url);
 
   // This is how the proxy works:
@@ -15,7 +15,15 @@ function handleRequest(request: Request) {
     const style = new URL("styles.css", import.meta.url);
     // Fetch the asset and return the fetched response
     // to the client.
-    return fetch(style);
+    const response = await fetch(style);
+    // We cannot directly modify the headers of a Response instance
+    // as they are immuntable. So we create a new headers object
+    // using the existing headers of the response.
+    const headers = new Headers(response.headers);
+    // Set the appropriate content-type header value.
+    headers.set("content-type", "text/css; charset=utf-8");
+    // Construct a new response with the modified headers.
+    return new Response(response.body, { ...response, headers });
   }
 
   return new Response(
