@@ -20,10 +20,22 @@ _(because of that types reference for vscode and deno lsp we need to pass empty 
 Code copied from deno tutorial: https://deno.com/deploy/docs/tutorial-discord-slash
 
 To use it in deno deploy just copy this [link to discord/mod.ts](discord/mod.ts)
-And follow instructions from here: https://deno.com/deploy/docs/tutorial-discord-slash
+And follow instructions from here: https://deno.com/deploy/docs/tutorial-discord-slash#install-the-slash-command-on-your-discord-server
 
 To run it locally execute:
 ```sh
 deployctl run --libs="ns" --watch ./discord/mod.ts
+```
+_(because some but not all types are referenced in imports)_
+
+### Using FaundaDB
+Code copied from deno tutorial: https://deno.com/deploy/docs/tutorial-faunadb
+
+To use it in deno deploy just copy this [link to fauna/quotes.ts](fauna/quotes.ts)
+And follow instructions from here: https://deno.com/deploy/docs/tutorial-faunadb#deploy-the-api
+
+To run it locally execute:
+```sh
+FAUNA_SECRET=<secret> deployctl run --libs=ns,fetchevent --watch ./fauna/quotes.ts
 ```
 _(because some but not all types are referenced in imports)_
