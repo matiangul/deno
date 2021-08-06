@@ -15,3 +15,15 @@ To run it locally execute:
 deployctl run --libs="" --watch ./static/mod.ts
 ```
 _(because of that types reference for vscode and deno lsp we need to pass empty libs)_
+
+### Hosting Discord command
+Code copied from deno tutorial: https://deno.com/deploy/docs/tutorial-discord-slash
+
+To use it in deno deploy just copy this [link to discord/mod.ts](discord/mod.ts)
+And follow instructions from here: https://deno.com/deploy/docs/tutorial-discord-slash
+
+To run it locally execute:
+```sh
+deployctl run --libs="ns" --watch ./discord/mod.ts
+```
+_(because some but not all types are referenced in imports)_
